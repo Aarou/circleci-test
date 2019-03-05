@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run: ls -a
       - run: pwd
-      - run: which python  
+      - run: python --version 
       - run:
           name: tree
           command: python -c "circleci-test/tests/test_tree.py"
