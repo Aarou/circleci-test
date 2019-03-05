@@ -2,13 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-            - image: python:3.6.8
-
+      - image: python:3.6.8
     steps:
       - checkout
       - run:
           name: tree
           command: python ./tests/test_tree.py
+
+  build:
+    docker:
+      - image: python:3.6.8
+    steps:
+      - checkout
       - run:
           name: content
           command: python ./tests/test_content.py
