@@ -10,19 +10,23 @@ import unittest
 import urllib.request as ulib
 import tarfile
 import filecmp
+import shutil
+import os
 
 def download():
 #    (tmpfile, headers) = ulib.urlretrieve("https://github.com/SIMEXP/Repo2Data/archive/multiple_data_requirement.tar.gz", "master.tar.gz")
     (tmpfile, headers) = ulib.urlretrieve("https://github.com/SIMEXP/Repo2Data/archive/master.tar.gz", "master.tar.gz")
-    tar = tarfile.open("master.tar.gz", "r:gz")
-    tar.extractall()
+    shutil.move("./master.tar.gz", "./tests/test_in/master.tar.gz")
+    tar = tarfile.open("./tests/test_in/master.tar.gz", "r:gz")
+    tar.extractall("./tests/test_in/")
     tar.close()
+    os.remove("./tests/test_in/master.tar.gz")
 
 class Test(unittest.TestCase):
 
     def test_names_equal(self):
         download()
-        self.assertFalse(filecmp.dircmp("Repo2Data-master", "./test_in/Repo2Data-master").diff_files)
+        self.assertFalse(filecmp.dircmp("./tests/test_in/Repo2Data-master", "./tests/test_in/Repo2Data-master").diff_files)
         
 if __name__ == '__main__':
     unittest.main()
