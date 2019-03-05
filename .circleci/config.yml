@@ -6,16 +6,11 @@ jobs:
 
     steps:
       - checkout
-        
-      - add_ssh_keys:
-          fingerprints:
-            - "7a:73:03:32:a7:39:aa:21:8f:0b:93:46:68:c2:90:96"
-            - "43:86:92:d0:30:5e:39:09:aa:73:be:50:b1:fc:8e:7d"  
-
+      - run: ls
+      - run: pwd
       - run:
           name: tree
           command: python -c "circleci-test/tests/test_tree.py"
-
       - run:
           name: content
           command: python -c "circleci-test/tests/test_tree.py"
