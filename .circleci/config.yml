@@ -6,20 +6,19 @@ jobs:
       - image: python:3.6.8
     steps:
       - checkout
+      - run: pip install -r requirements.txt
       - run:
           name: tree
-          command: python ./tests/test_tree.py
+          command: pytest ./tests/test_tree.py
   test-content:
     docker:
       - image: python:3.6.8
     steps:
       - checkout
-      - run: pwd
-      - run: ls -a
-      - run: python -c "import tools"  
+      - run: pip install -r requirements.txt
       - run:
           name: content
-          command: python ./tests/test_content.py
+          command: pytest ./tests/test_content.py
 
 workflows:
   version: 2
