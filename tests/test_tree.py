@@ -16,6 +16,7 @@ import os
 def download():
 #    (tmpfile, headers) = ulib.urlretrieve("https://github.com/SIMEXP/Repo2Data/archive/multiple_data_requirement.tar.gz", "master.tar.gz")
     (tmpfile, headers) = ulib.urlretrieve("https://github.com/SIMEXP/Repo2Data/archive/master.tar.gz", "master.tar.gz")
+    os.makedirs("./tests/test_in/")
     shutil.move("./master.tar.gz", "./tests/test_in/master.tar.gz")
     tar = tarfile.open("./tests/test_in/master.tar.gz", "r:gz")
     tar.extractall("./tests/test_in/")
@@ -23,10 +24,8 @@ def download():
     os.remove("./tests/test_in/master.tar.gz")
 
 class Test(unittest.TestCase):
-
     def test_names_equal(self):
+        if os.path.exists("./tests/test_in/"):
+            shutil.rmtree("./tests/test_in/")
         download()
-        self.assertFalse(filecmp.dircmp("./tests/test_in/Repo2Data-master", "./tests/test_in/Repo2Data-master").diff_files)
-        
-if __name__ == '__main__':
-    unittest.main()
+        self.assertFalse(filecmp.dircmp("./tests/test_in/Repo2Data-master", "./tests/test_out/Repo2Data-master").diff_files)
