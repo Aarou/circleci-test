@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test-tree:
     docker:
       - image: python:3.6.8
     steps:
@@ -9,7 +9,7 @@ jobs:
           name: tree
           command: python ./tests/test_tree.py
 
-  build:
+  test-content:
     docker:
       - image: python:3.6.8
     steps:
