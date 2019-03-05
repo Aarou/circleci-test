@@ -1,4 +1,5 @@
 version: 2
+
 jobs:
   test-tree:
     docker:
@@ -8,7 +9,6 @@ jobs:
       - run:
           name: tree
           command: python ./tests/test_tree.py
-
   test-content:
     docker:
       - image: python:3.6.8
@@ -17,3 +17,10 @@ jobs:
       - run:
           name: content
           command: python ./tests/test_content.py
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - test-tree
+      - test-content
