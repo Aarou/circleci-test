@@ -6,8 +6,9 @@ jobs:
 
     steps:
       - checkout
-      - run: ls
+      - run: ls -a
       - run: pwd
+      - run: which python  
       - run:
           name: tree
           command: python -c "circleci-test/tests/test_tree.py"
