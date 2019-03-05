@@ -9,9 +9,6 @@ jobs:
       - run:
           name: tree
           command: python ./tests/test_tree.py
-   
-    steps:
-      - checkout
       - run:
           name: content
           command: python ./tests/test_content.py
