@@ -43,8 +43,8 @@ workflows:
     jobs:
       - build
       - test-tree:
-	  requires:
-	    - build
+          requires:
+            - build
       - test-content:
-	  requires:
-	    - build
+          requires:
+            - build
