@@ -1,4 +1,3 @@
-bkewfbfkwe
 # Repo2Data
 Repo2Data is a **python3** package that automatically fecth data from a remote server, and decomrpess it if needed. Future development will fetch automatically 
  from [amazon s3](https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html), [datalad](https://www.datalad.org/) for version control or specific python lib dataset (`tf.keras.datasets`, `nilearn.datasets.fetch` etc...).
