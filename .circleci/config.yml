@@ -9,10 +9,10 @@ jobs:
       - run: pip install -r requirements.txt 
       # cache the installed libraries
       - save_cache:
-	  key: pip-packages-v1-{{ .Branch }}-{{ checksum "Pipfile.lock" }} 
-	  paths:
-	    - "/usr/local/bin" 
-	    - "/usr/local/lib/python3.6/site-packages"
+          key: pip-packages-v1-{{ .Branch }}-{{ checksum "Pipfile.lock" }} 
+          paths:
+            - "/usr/local/bin" 
+            - "/usr/local/lib/python3.6/site-packages"
 
   test-tree:
     docker:
@@ -21,7 +21,7 @@ jobs:
       # use the saved cache from the build to avoid reinstalling the libs
       - restore_cache:
           keys:
-	    - pip-packages-v1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+            - pip-packages-v1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           name: tree
           command: pytest ./tests/test_tree.py
@@ -32,7 +32,7 @@ jobs:
       # use the saved cache from the build to avoid reinstalling the libs
       - restore_cache:
           keys:
-	    - pip-packages-v1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+            - pip-packages-v1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           name: content
           command: pytest ./tests/test_content.py
