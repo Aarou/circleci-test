@@ -18,6 +18,7 @@ jobs:
     docker:
       - image: python:3.6.8
     steps:
+      - checkout
       # use the saved cache from the build to avoid reinstalling the libs
       - restore_cache:
           keys:
@@ -29,6 +30,7 @@ jobs:
     docker:
       - image: python:3.6.8
     steps:
+      - checkout
       # use the saved cache from the build to avoid reinstalling the libs
       - restore_cache:
           keys:
