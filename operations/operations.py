@@ -6,7 +6,7 @@ Created on Thu Mar  7 11:52:07 2019
 @author: ltetrel
 """
 
-def addition(a, b):
+def add(a, b):
     return a + b
 
 def sup(a, b):
