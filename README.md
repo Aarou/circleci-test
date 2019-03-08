@@ -1,5 +1,5 @@
-# circleci-test
 [![CircleCI](https://circleci.com/gh/ltetrel/circleci-test/tree/master.svg?style=svg)](https://circleci.com/gh/ltetrel/circleci-test/tree/master)
+# circleci-test
 This repository is intended to showcase a continuous integration with [circleci](https://circleci.com/).
 By reading this you should learn how to :
 * Make tests with `unittest` and `pytest`
